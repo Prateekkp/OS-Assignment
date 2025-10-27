@@ -1,169 +1,72 @@
-**Operating Systems Lab Assignment**  
-**Submitted by: Prateek Kumar Prasad, B.Tech CSE, Semester 5, Roll No: 2301420018**
-
-# Experiment 1: Process Management in OS
-
-## Summary of Tasks
-
----
-
-### OS Assignment: Process Management in Linux
-
-This repository contains a comprehensive 5-task assignment on **process management** in Linux, completed by **Prateek Prasad** for a 5th-semester Operating Systems course. The tasks demonstrate key concepts using C system calls and interactions with the Linux kernel's process information a.k.a **`/proc`** filesystem.
+# 🧠 Operating Systems Lab Assignments  
+**Submitted by:** *Prateek Kumar Prasad*  
+**Course:** B.Tech CSE (Data Science)  
+**Semester:** 5  
+**Roll No:** 2301420018  
 
 ---
 
-### **Task 1: Creating and Managing Processes**
-
-This section focuses on the fundamental concepts of process creation. The goal is to:
-
-- Create **three child processes** from a single parent process.
-- Use the **`fork()`** system call to duplicate the parent process.
-- Display the **Process IDs (PIDs)** of all child processes to verify their creation.
-
-### **Task 2: Executing External Commands**
-
-This task explores how a process can execute a completely different program.
-
-- A child process is created specifically to run an external command.
-- The **`exec()`** family of system calls is used to replace the child process's image with the **`ls -l`** command.
-
-### **Task 3: Demonstrating Special Process States**
-
-This section dives into the lifecycle of processes, specifically focusing on states that can occur if not handled properly.
-
-- **Zombie Process**: A terminated process whose parent has not yet collected its exit status.
-- **Orphan Process**: A process whose parent has terminated, causing it to be adopted by the **`init`** (or **`systemd`**) process.
-
-### **Task 4: Examining Process Information**
-
-This task demonstrates how to programmatically access detailed information about a running process directly from the Linux kernel.
-
-- Read details from the virtual **`/proc`** filesystem.
-- Extract information such as the process **status**, the path to its **executable file**, and its open **file descriptors**.
-
-### **Task 5: Managing Process Priority**
-
-This final task illustrates how process scheduling can be influenced by adjusting a process's priority.
-
-- The **`nice`** value is used to adjust a process's scheduling priority.
-- A **lower nice value** (e.g., -20) gives the process a higher priority and more CPU time.
-- A **higher nice value** (e.g., +19) gives it a lower priority.
+## 📘 Overview
+This repository contains **three Operating Systems lab assignments** completed as part of the 5th-semester curriculum.  
+Each assignment demonstrates the implementation of **core OS concepts** through **practical programming in C and Python** on a Linux environment.
 
 ---
 
-## Process Flow (Visual)
+## 🧩 Assignment 1 — Process Management in Linux
+**Objective:** Understand process creation, execution, and management using system calls.  
 
-```mermaid
-flowchart TD
-    A["1. Create Processes
-Fork three child processes and display their PIDs"] --> B["2. Execute Commands
-Run 'ls -l' within a child process using exec()"]
-    B --> C["3. Handle Special Processes
-Demonstrate zombie and orphan process states"]
-    C --> D["4. Examine Process Information
-Read details from the /proc filesystem (status, exe, fd)"]
-    D --> E["5. Manage Process Priority
-Adjust nice values and observe scheduling behavior"]
+### **Included Tasks:**
+1. **Creating and Managing Processes:** Using `fork()` to create multiple child processes.  
+2. **Executing External Commands:** Using `exec()` to run commands like `ls -l`.  
+3. **Special Process States:** Demonstrating **Zombie** and **Orphan** processes.  
+4. **Process Information Access:** Reading process details from the **`/proc` filesystem**.  
+5. **Process Priority Management:** Adjusting CPU scheduling priority using the **`nice`** command.  
 
-```
-
-## Included Files
-
-- `process_management.py`: The main Python script containing the implementation for all tasks.
-- `output.txt`: A file containing sample output from the script execution.
-- `OS_Lab_Assignment 1.docx`: The original assignment document.
-- `report.pdf`: The detailed lab report for this experiment.
+📄 **Files Included:**  
+- `process_management.py`  
+- `output.txt`  
+- `OS_Lab_Assignment 1.docx`  
+- `Assignment - OS_Report.pdf`  
+- `Task 1 & 2.png`, `Task 3.png`, `Task 4 & 5.png`, `Task 5.png`
 
 ---
 
-This repository contains multiple OS assignments and practical code/lab reports. To avoid editing this file every time you add or remove files, a small script will update the "Files in this repository" section automatically.
+## ⚙️ Assignment 2 — Process Scheduling and Subtasks
+**Objective:** Implement various CPU scheduling algorithms and explore multi-process operations.  
 
-Usage
+### **Included Components:**
+- **Subtasks:**  
+  - Process creation and joining (`subtask1_logging.py`, `subtask2_function.py`, etc.)  
+  - Logging and inter-process communication  
+- **Scheduling Algorithms:**  
+  - **FCFS (First Come First Serve)**  
+  - **SJF (Shortest Job First)**  
+  - **Round Robin Scheduling**  
 
-- Run the script `scripts\generate_readme.py` to regenerate the file listing below. It scans the repository and replaces the auto-generated section between the markers <AUTO-GENERATED FILE LIST - START>
+📄 **Files Included:**  
+- `Scheduling/fcfs.py`  
+- `Scheduling/sjf.py`  
+- `Scheduling/round_robin.py`  
+- `Scheduling-Report.pdf`  
+- `process_log.txt`  
+- `subtask1_logging.py`, `subtask2_function.py`, `subtask3_process_creation.py`, `subtask4_process_join.py`  
 
-Files in this repository
+---
 
-```
-OS-Assignment/
-├── .git/
-│   ├── hooks/
-│   │   ├── applypatch-msg.sample
-│   │   ├── commit-msg.sample
-│   │   ├── fsmonitor-watchman.sample
-│   │   ├── post-update.sample
-│   │   ├── pre-applypatch.sample
-│   │   ├── pre-commit.sample
-│   │   ├── pre-merge-commit.sample
-│   │   ├── pre-push.sample
-│   │   ├── pre-rebase.sample
-│   │   ├── pre-receive.sample
-│   │   ├── prepare-commit-msg.sample
-│   │   ├── push-to-checkout.sample
-│   │   ├── sendemail-validate.sample
-│   │   └── update.sample
-│   ├── info/
-│   │   └── exclude
-│   ├── logs/
-│   │   ├── refs/
-│   │   │   ├── heads/
-│   │   │   │   └── main
-│   │   │   └── remotes/
-│   │   │       └── origin/
-│   │   └── HEAD
-│   ├── objects/
-│   │   ├── info/
-│   │   └── pack/
-│   │       ├── pack-c52f1ef2c09858ede47c810184acd13b1320a76a.idx
-│   │       ├── pack-c52f1ef2c09858ede47c810184acd13b1320a76a.pack
-│   │       └── pack-c52f1ef2c09858ede47c810184acd13b1320a76a.rev
-│   ├── refs/
-│   │   ├── heads/
-│   │   │   └── main
-│   │   ├── remotes/
-│   │   │   └── origin/
-│   │   │       └── HEAD
-│   │   └── tags/
-│   ├── config
-│   ├── description
-│   ├── HEAD
-│   ├── index
-│   └── packed-refs
-├── Assignment - 1/
-│   ├── Assignment - OS_Report.pdf
-│   ├── OS_Lab_Assignment 1.docx
-│   ├── output.txt
-│   ├── process_management.py
-│   ├── README.md
-│   ├── Task 1 & 2.png
-│   ├── Task 3.png
-│   ├── Task 4 & 5.png
-│   └── Task 5.png
-├── Assignmet - 2/
-│   ├── Scheduling/
-│   │   ├── fcfs.py
-│   │   ├── round_robin.py
-│   │   ├── Scheduling-Report.pdf
-│   │   └── sjf.py
-│   ├── OS-ASSIGNMENT-2-Report.pdf
-│   ├── process_log.txt
-│   ├── subtask1_logging.py
-│   ├── subtask2_function.py
-│   ├── subtask3_process_creation.py
-│   └── subtask4_process_join.py
-├── scripts/
-└── README.md
-```
+## 💾 Assignment 3 — Advanced OS Concepts: Scheduling & Memory Management
+**Objective:** Extend understanding of OS by implementing **scheduling and memory allocation** strategies.
 
-<AUTO-GENERATED FILE LIST - END>.
+### **Included Tasks:**
+1. **Task 1 — Scheduling Algorithm Implementation**  
+   - Simulate basic process scheduling using Python.  
+4. **Task 4 — Memory Allocation Strategies**  
+   - Simulate **Best-Fit**, **Worst-Fit**, and **First-Fit** memory allocation.  
+5. **Task 5 — MFT and MVT Simulation**  
+   - Implement **Multiprogramming with Fixed Tasks (MFT)** and **Variable Tasks (MVT)** strategies.  
 
-Auto-generated file listing
+📄 **Files Included:**  
+- `task1_scheduling.py`  
+- `task4_memory_allocation.py`  
+- `task5_mft_mvt_simulation.py`  
+- `OS_Assignment3_Report.pdf`  
 
-<AUTO-GENERATED FILE LIST - START>
-
-_Run `scripts/generate_readme.py` to populate this list._
-
-<AUTO-GENERATED FILE LIST - END>
-
-If you'd like the generator to ignore certain files or directories, edit `scripts/generate_readme.py` and add patterns to the ignore list.
