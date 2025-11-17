@@ -62,11 +62,26 @@ Each assignment demonstrates the implementation of **core OS concepts** through 
 4. **Task 4 — Memory Allocation Strategies**  
    - Simulate **Best-Fit**, **Worst-Fit**, and **First-Fit** memory allocation.  
 5. **Task 5 — MFT and MVT Simulation**  
-   - Implement **Multiprogramming with Fixed Tasks (MFT)** and **Variable Tasks (MVT)** strategies.  
+   - Implement **Multiprogramming with Fixed Tasks (MFT)** and **Variable Tasks (MVT)** strategies. 
 
 📄 **Files Included:**  
 - `task1_scheduling.py`  
 - `task4_memory_allocation.py`  
 - `task5_mft_mvt_simulation.py`  
-- `OS_Assignment3_Report.pdf`  
+- `OS_Assignment3_Report.pdf`   
+
+## 💾 Assignment 4 — Batch Processing, System Simulation & IPC
+**Objective:** Simulate batch execution, system startup behavior, IPC mechanisms, VM detection, and extended CPU scheduling.
+
+### **Included Tasks:**
+1. **Task 1 — Batch Processing Simulation (Python)**  
+   - Simulate batch processing by executing multiple Python scripts sequentially using subprocess.  
+2. **Task 2 — System Startup & Logging**  
+   - Simulate a mini system boot sequence using multiprocessing and logging..  
+3. **Task 3 — System Calls & IPC (fork, exec, pipe)**  
+   - Implement system calls and inter-process communication using pipes.  
+4. **Task 4 — VM Detection & Shell Interaction**  
+   - Use a shell script to display system details and a Python script to detect virtualization.
+5. **Task 5 — CPU Scheduling Algorithms (Extended)**  
+   - Implement: FCFS, SJF, Round Robin ,Priority Scheduling.
 
